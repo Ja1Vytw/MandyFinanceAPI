@@ -29,11 +29,12 @@ const envAllowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map((origin) => origin.trim()).filter(Boolean)
   : [];
 
+const vercelPattern = /^https:\/\/[^.]+\.vercel\.app$/;
 const allowedOrigins = [...new Set([...defaultAllowedOrigins, ...envAllowedOrigins])];
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin) || vercelPattern.test(origin)) {
       return callback(null, true);
     }
     return callback(new Error('Not allowed by CORS'));

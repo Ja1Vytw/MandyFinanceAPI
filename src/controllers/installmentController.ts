@@ -38,7 +38,7 @@ export const createInstallmentPurchase = async (req: Request, res: Response): Pr
       dueDate.setMonth(dueDate.getMonth() + i);
 
       const installment = new Installment({
-        purchaseId: savedPurchase._id.toString(),
+        purchaseId: savedPurchase.id,
         amount: req.body.installmentAmount,
         dueDate: dueDate.toISOString().split('T')[0],
         paid: false,

@@ -15,7 +15,10 @@ Crie um arquivo `.env` na raiz do projeto com:
 MONGODB_URI=mongodb+srv://Ja1_vytw:Joao2003vitor@cluster0.kvrcf90.mongodb.net/?appName=Cluster0
 PORT=3001
 NODE_ENV=development
+ALLOWED_ORIGINS=http://localhost:3000,https://seu-front.vercel.app
 ```
+
+> Substitua `https://seu-front.vercel.app` pelo domínio real do frontend (por exemplo, o domínio do Vercel). Você pode fornecer múltiplos domínios separados por vírgula.
 
 3. Popule o banco de dados com usuários iniciais:
 ```bash
